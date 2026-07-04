@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Playground — Riya Studio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .game-card{border:1px solid var(--line); padding:26px; margin-bottom:24px;}
+  .game-head{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:16px;}
+  .game-stats{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-soft); display:flex; gap:18px;}
+
+  #memory-grid{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; max-width:420px;
+  }
+  .mem-tile{
+    aspect-ratio:1; border:1px solid var(--line); background:var(--ink);
+    display:flex; align-items:center; justify-content:center;
+    font-size:26px; cursor:pointer; border-radius:4px;
+    color:var(--ink); user-select:none;
+    transition:transform .15s ease;
+  }
+  .mem-tile.flipped, .mem-tile.matched{background:var(--paper-dim); color:var(--ink);}
+  .mem-tile.matched{border-color:var(--clay); opacity:.6; cursor:default;}
+  .mem-tile:active{transform:scale(.95);}
+
+  .soon-card{
+    border:1px dashed var(--line); padding:26px; text-align:center; color:var(--ink-faint);
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="index.html" class="logo">RIYA STUDIO <em>RB</em></a>
+    <button class="nav-toggle">MENU</button>
+    <nav class="mainnav">
+      <div class="nav-cluster nav-work">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="resume.html">Resume</a>
+      </div>
+      <div class="nav-divider"></div>
+      <div class="nav-cluster nav-personal">
+        <a href="ideas.html">Ideas</a>
+        <a href="about.html">About</a>
+        <a href="art.html">Art</a>
+        <a href="travel.html">Travel</a>
+        <a href="playground.html" class="active">Playground</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section style="padding-top:70px; padding-bottom:10px;">
+  <div class="wrap">
+    <p class="eyebrow personal">// 08 — Playground</p>
+    <h1>Small games, built for fun</h1>
+    <p class="lede">Nothing here has a business case. That's the point.</p>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="wrap">
+
+    <div class="game-card">
+      <div class="game-head">
+        <h3 style="margin:0;">Memory Match</h3>
+        <div class="game-stats">
+          <span>Moves: <b id="mv-count">0</b></span>
+          <span>Matches: <b id="match-count">0</b>/8</span>
+        </div>
+      </div>
+      <div id="memory-grid"></div>
+      <button class="btn ghost" style="margin-top:18px;" onclick="startGame()">Restart</button>
+    </div>
+
+    <div class="grid grid-3">
+      <div class="soon-card"><h3 style="color:var(--ink-soft);">Reaction Timer</h3><p style="margin:0;">Coming soon</p></div>
+      <div class="soon-card"><h3 style="color:var(--ink-soft);">Word Puzzle</h3><p style="margin:0;">Coming soon</p></div>
+      <div class="soon-card"><h3 style="color:var(--ink-soft);">Mini Quiz</h3><p style="margin:0;">Coming soon</p></div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="f-logo">Riya Studio</div>
+      <div class="f-small">MUMBAI, INDIA</div>
+    </div>
+    <div class="f-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="resume.html">Resume</a>
+      <a href="ideas.html">Ideas</a>
+      <a href="about.html">About</a>
+      <a href="art.html">Art</a>
+      <a href="travel.html">Travel</a>
+      <a href="playground.html">Playground</a>
+    </div>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+<script>
+  const SYMBOLS = ['🌍','🎨','📊','☕','🧭','🎲','🌱','⚡'];
+  let first = null, second = null, lock = false, moves = 0, matches = 0;
+
+  function shuffle(arr){
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  function startGame(){
+    moves = 0; matches = 0; first = null; second = null; lock = false;
+    document.getElementById('mv-count').textContent = 0;
+    document.getElementById('match-count').textContent = 0;
+
+    const deck = shuffle([...SYMBOLS, ...SYMBOLS]);
+    const grid = document.getElementById('memory-grid');
+    grid.innerHTML = '';
+    deck.forEach((symbol, i) => {
+      const tile = document.createElement('div');
+      tile.className = 'mem-tile';
+      tile.dataset.symbol = symbol;
+      tile.dataset.index = i;
+      tile.addEventListener('click', () => flip(tile));
+      grid.appendChild(tile);
+    });
+  }
+
+  function flip(tile){
+    if (lock || tile.classList.contains('flipped') || tile.classList.contains('matched')) return;
+    tile.textContent = tile.dataset.symbol;
+    tile.classList.add('flipped');
+
+    if (!first){ first = tile; return; }
+    second = tile;
+    lock = true;
+    moves++;
+    document.getElementById('mv-count').textContent = moves;
+
+    if (first.dataset.symbol === second.dataset.symbol){
+      first.classList.add('matched');
+      second.classList.add('matched');
+      matches++;
+      document.getElementById('match-count').textContent = matches;
+      resetTurn();
+    } else {
+      setTimeout(() => {
+        first.classList.remove('flipped'); first.textContent = '';
+        second.classList.remove('flipped'); second.textContent = '';
+        resetTurn();
+      }, 700);
+    }
+  }
+
+  function resetTurn(){ first = null; second = null; lock = false; }
+
+  startGame();
+</script>
+</body>
+</html>

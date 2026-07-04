@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Travel — Riya Studio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .stat-row{display:flex; gap:40px; flex-wrap:wrap; margin:26px 0 6px;}
+  .stat b{font-family:'IBM Plex Mono', monospace; font-size:32px; color:var(--ink); display:block;}
+  .stat span{font-size:11px; color:var(--ink-soft); letter-spacing:.5px; text-transform:uppercase;}
+
+  .continent-title{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:2px;
+    text-transform:uppercase; color:var(--clay); margin:36px 0 14px;
+  }
+
+  .stamp-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(150px,1fr)); gap:14px;}
+  .stamp{
+    border:1.5px dashed var(--clay);
+    border-radius:6px;
+    padding:16px 12px;
+    text-align:center;
+    transform:rotate(var(--r, -1deg));
+    background:var(--paper);
+  }
+  .stamp:nth-child(3n){--r:1.2deg;}
+  .stamp:nth-child(3n+1){--r:-1.5deg;}
+  .stamp:nth-child(3n+2){--r:0.5deg;}
+  .stamp .flag{font-size:26px;}
+  .stamp .country{font-size:12px; font-weight:600; margin-top:6px; color:var(--ink);}
+  .stamp .year{font-family:'IBM Plex Mono', monospace; font-size:10px; color:var(--ink-soft); margin-top:2px;}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="index.html" class="logo">RIYA STUDIO <em>RB</em></a>
+    <button class="nav-toggle">MENU</button>
+    <nav class="mainnav">
+      <div class="nav-cluster nav-work">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="resume.html">Resume</a>
+      </div>
+      <div class="nav-divider"></div>
+      <div class="nav-cluster nav-personal">
+        <a href="ideas.html">Ideas</a>
+        <a href="about.html">About</a>
+        <a href="art.html">Art</a>
+        <a href="travel.html" class="active">Travel</a>
+        <a href="playground.html">Playground</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section style="padding-top:70px; padding-bottom:10px;">
+  <div class="wrap">
+    <p class="eyebrow personal">// 07 — Travel</p>
+    <h1>My Passport</h1>
+    <p class="lede">Every country I've stamped so far, logged like a passport rather than pinned on a map.</p>
+
+    <div class="stat-row">
+      <div class="stat"><b id="stat-countries">—</b><span>Countries</span></div>
+      <div class="stat"><b id="stat-continents">—</b><span>Continents</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="wrap" id="passport-root">
+    <!-- populated by script below -->
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="wrap">
+    <div class="card">
+      <p style="margin:0;">
+        <strong>To update this list:</strong> open <code>travel.html</code> and edit the
+        <code>countries</code> array near the bottom of the file — add
+        <code>{ name: "Country", flag: "🇽🇽", year: "2024", continent: "Asia" }</code>
+        for each place you've visited. The counts and grouping above update automatically.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="f-logo">Riya Studio</div>
+      <div class="f-small">MUMBAI, INDIA</div>
+    </div>
+    <div class="f-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="resume.html">Resume</a>
+      <a href="ideas.html">Ideas</a>
+      <a href="about.html">About</a>
+      <a href="art.html">Art</a>
+      <a href="travel.html">Travel</a>
+      <a href="playground.html">Playground</a>
+    </div>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+<script>
+  // ---- EDIT THIS LIST with your own travel history ----
+  const countries = [
+    { name: "India",        flag: "🇮🇳", year: "Home", continent: "Asia" },
+    { name: "Thailand",     flag: "🇹🇭", year: "2018", continent: "Asia" },
+    { name: "Singapore",    flag: "🇸🇬", year: "2019", continent: "Asia" },
+    { name: "UAE",          flag: "🇦🇪", year: "2019", continent: "Asia" },
+    { name: "France",       flag: "🇫🇷", year: "2022", continent: "Europe" },
+    { name: "Italy",        flag: "🇮🇹", year: "2022", continent: "Europe" },
+    { name: "Switzerland",  flag: "🇨🇭", year: "2023", continent: "Europe" },
+    { name: "Indonesia (Bali)", flag: "🇮🇩", year: "2024", continent: "Asia" },
+  ];
+  // ------------------------------------------------------
+
+  const root = document.getElementById('passport-root');
+  const byContinent = {};
+  countries.forEach(c => {
+    byContinent[c.continent] = byContinent[c.continent] || [];
+    byContinent[c.continent].push(c);
+  });
+
+  document.getElementById('stat-countries').textContent = countries.length;
+  document.getElementById('stat-continents').textContent = Object.keys(byContinent).length;
+
+  Object.keys(byContinent).forEach(cont => {
+    const title = document.createElement('p');
+    title.className = 'continent-title';
+    title.textContent = cont;
+    root.appendChild(title);
+
+    const grid = document.createElement('div');
+    grid.className = 'stamp-grid';
+    byContinent[cont].forEach(c => {
+      const stamp = document.createElement('div');
+      stamp.className = 'stamp';
+      stamp.innerHTML = `<div class="flag">${c.flag}</div><div class="country">${c.name}</div><div class="year">${c.year}</div>`;
+      grid.appendChild(stamp);
+    });
+    root.appendChild(grid);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+/* ===========================================================
+   RIYA STUDIO — shared design system
+   Paper ivory + ink navy (professional) / clay accent (personal, used sparingly)
+   =========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --paper:#F7F4EC;
+  --paper-dim:#EFEBDF;
+  --ink:#1E2A38;
+  --ink-soft:#57626C;
+  --ink-faint:#8A9099;
+  --brass:#9C6B30;
+  --brass-soft:#B98A4E;
+  --clay:#A25B34;      /* secondary accent — used only on "beyond work" pages */
+  --line:#DCD5C3;
+  --line-dark:#33404F;
+  --panel:#1E2A38;
+  --paper-on-panel:#EDE7D8;
+  --radius:2px;
+  --max:1080px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Inter', sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+
+a{color:inherit;}
+img{max-width:100%; display:block;}
+
+.wrap{max-width:var(--max); margin:0 auto; padding:0 40px;}
+
+/* ---------- Top bar ---------- */
+.topbar{
+  border-bottom:1px solid var(--line);
+  background:var(--paper);
+  position:sticky; top:0; z-index:50;
+}
+.topbar .wrap{
+  display:flex; align-items:center; justify-content:space-between;
+  height:74px;
+}
+.logo{
+  font-family:'Fraunces', serif;
+  font-size:19px;
+  letter-spacing:0.5px;
+  font-weight:600;
+  color:var(--ink);
+  text-decoration:none;
+  display:flex; align-items:baseline; gap:8px;
+}
+.logo em{
+  font-style:normal;
+  font-family:'IBM Plex Mono', monospace;
+  font-size:10px;
+  color:var(--brass);
+  letter-spacing:1.5px;
+  border:1px solid var(--brass-soft);
+  padding:2px 6px;
+  border-radius:2px;
+}
+
+nav.mainnav{display:flex; align-items:center; gap:26px;}
+.nav-cluster{display:flex; align-items:center; gap:20px;}
+.nav-cluster a{
+  text-decoration:none;
+  font-size:13px;
+}
+.nav-work a{
+  color:var(--ink);
+  font-weight:600;
+  letter-spacing:0.2px;
+}
+.nav-work a.active, .nav-work a:hover{color:var(--brass);}
+
+.nav-divider{
+  width:1px; height:22px; background:var(--line);
+}
+
+.nav-personal a{
+  color:var(--ink-soft);
+  font-family:'Fraunces', serif;
+  font-style:italic;
+  font-size:13.5px;
+}
+.nav-personal a.active, .nav-personal a:hover{color:var(--clay);}
+
+.nav-toggle{display:none;}
+
+@media (max-width:880px){
+  nav.mainnav{
+    position:fixed; inset:74px 0 0 0; background:var(--paper);
+    flex-direction:column; align-items:flex-start; padding:28px 40px;
+    gap:22px; transform:translateX(100%); transition:transform .3s ease;
+    overflow-y:auto;
+  }
+  nav.mainnav.open{transform:translateX(0);}
+  .nav-cluster{flex-direction:column; align-items:flex-start; gap:14px;}
+  .nav-divider{display:none;}
+  .nav-toggle{
+    display:block; background:none; border:1px solid var(--line);
+    padding:8px 10px; font-family:'IBM Plex Mono', monospace; font-size:12px;
+    cursor:pointer; color:var(--ink);
+  }
+}
+
+/* ---------- Eyebrow / file-tab motif (signature element) ---------- */
+.eyebrow{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:11px;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  color:var(--brass);
+  display:flex; align-items:center; gap:10px;
+  margin-bottom:14px;
+}
+.eyebrow.personal{color:var(--clay);}
+.eyebrow::after{content:""; flex:none; width:34px; height:1px; background:currentColor; opacity:.5;}
+
+/* ---------- Sections ---------- */
+section{padding:70px 0;}
+.section-tight{padding:44px 0;}
+h1,h2,h3{font-family:'Fraunces', serif; font-weight:600; margin:0 0 14px; color:var(--ink);}
+h1{font-size:44px; line-height:1.08;}
+h2{font-size:30px;}
+h3{font-size:20px;}
+p{line-height:1.7; color:var(--ink-soft); margin:0 0 14px;}
+.lede{font-size:17px; max-width:640px;}
+
+.rule{border:none; border-top:1px solid var(--line); margin:0;}
+
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:12px 22px;
+  font-size:13px; font-weight:600; letter-spacing:0.3px;
+  text-decoration:none;
+  border-radius:2px;
+  border:1px solid var(--ink);
+  color:var(--paper);
+  background:var(--ink);
+  transition:all .2s ease;
+}
+.btn:hover{background:var(--brass); border-color:var(--brass);}
+.btn.ghost{background:transparent; color:var(--ink); border-color:var(--ink);}
+.btn.ghost:hover{background:var(--ink); color:var(--paper);}
+.btn.clay{background:var(--clay); border-color:var(--clay);}
+.btn.clay:hover{opacity:.85;}
+
+/* ---------- Cards ---------- */
+.card{
+  border:1px solid var(--line);
+  background:var(--paper);
+  padding:28px;
+  border-radius:2px;
+}
+
+.grid{display:grid; gap:24px;}
+.grid-2{grid-template-columns:1fr 1fr;}
+.grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-4{grid-template-columns:repeat(4,1fr);}
+@media (max-width:880px){
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}
+}
+
+/* ---------- Footer ---------- */
+footer{
+  background:var(--panel);
+  color:var(--paper-on-panel);
+  padding:46px 0 30px;
+  margin-top:40px;
+}
+footer .wrap{display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:24px;}
+footer .f-logo{font-family:'Fraunces', serif; font-size:18px; margin-bottom:8px;}
+footer .f-links{display:flex; gap:22px; flex-wrap:wrap;}
+footer .f-links a{font-size:12.5px; text-decoration:none; color:var(--paper-on-panel); opacity:.8;}
+footer .f-links a:hover{opacity:1; color:var(--brass-soft);}
+footer .f-small{font-family:'IBM Plex Mono', monospace; font-size:10.5px; color:#8FA0AE; margin-top:24px;}
+
+/* ---------- Utility ---------- */
+.tag{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:10.8px;
+  padding:4px 9px;
+  border:1px solid var(--line-dark);
+  border-radius:2px;
+  letter-spacing:.3px;
+  display:inline-block;
+}
+.tag.light{border-color:var(--line); color:var(--ink-soft);}
+
+.hairline-list{list-style:none; margin:0; padding:0;}
+.hairline-list li{
+  padding:16px 0; border-bottom:1px solid var(--line);
+  display:flex; justify-content:space-between; gap:20px; align-items:baseline;
+}
+.hairline-list li:first-child{border-top:1px solid var(--line);}

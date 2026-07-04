@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Résumé — Riya Studio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .ledger{position:relative; padding-left:96px; margin-top:10px;}
+  .ledger::before{content:""; position:absolute; left:84px; top:6px; bottom:6px; width:1px; background:var(--line);}
+  .entry{position:relative; margin-bottom:26px;}
+  .entry:last-child{margin-bottom:0;}
+  .entry .yrs-tag{position:absolute; left:-96px; top:1px; width:76px; text-align:right; font-family:'IBM Plex Mono', monospace; font-size:10.6px; color:var(--ink-soft); line-height:1.5;}
+  .entry::after{content:""; position:absolute; left:-17px; top:6px; width:9px; height:9px; border-radius:50%; background:var(--paper); border:2px solid var(--brass);}
+  .entry-head{display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:6px;}
+  .entry-title{font-size:15px; font-weight:700; color:var(--ink);}
+  .entry-org{font-size:12.5px; color:var(--brass); font-weight:600; margin-left:6px;}
+  .entry-loc{font-size:11px; color:var(--ink-soft); font-family:'IBM Plex Mono', monospace;}
+  .entry ul{margin:8px 0 0; padding-left:16px;}
+  .entry li{font-size:12.8px; line-height:1.62; color:var(--ink-soft); margin-bottom:3px;}
+  .ach-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px 28px;}
+  .ach-co h4{font-size:11.5px; margin:0 0 6px; color:var(--ink); font-family:'IBM Plex Mono', monospace; letter-spacing:.5px; border-bottom:1px dashed var(--line); padding-bottom:5px;}
+  .ach-co ul{margin:0; padding-left:14px;}
+  .ach-co li{font-size:11.6px; line-height:1.55; color:var(--ink-soft); margin-bottom:4px;}
+  @media (max-width:700px){ .ach-grid{grid-template-columns:1fr;} .ledger{padding-left:70px;} .entry .yrs-tag{left:-70px; width:56px;} }
+  @media print{ .topbar, footer, .no-print{display:none!important;} }
+</style>
+</head>
+<body>
+
+<header class="topbar no-print">
+  <div class="wrap">
+    <a href="index.html" class="logo">RIYA STUDIO <em>RB</em></a>
+    <button class="nav-toggle">MENU</button>
+    <nav class="mainnav">
+      <div class="nav-cluster nav-work">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="resume.html" class="active">Resume</a>
+      </div>
+      <div class="nav-divider"></div>
+      <div class="nav-cluster nav-personal">
+        <a href="ideas.html">Ideas</a>
+        <a href="about.html">About</a>
+        <a href="art.html">Art</a>
+        <a href="travel.html">Travel</a>
+        <a href="playground.html">Playground</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section style="padding-top:64px; padding-bottom:20px;">
+  <div class="wrap">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:16px;">
+      <div>
+        <p class="eyebrow">// 03 — Résumé</p>
+        <h1 style="margin-bottom:6px;">Riya Bhandari</h1>
+        <p style="margin:0;">Regional Risk Manager · Corporate Credit &amp; Portfolio Risk</p>
+      </div>
+      <button class="btn no-print" onclick="window.print()">Download / Print PDF ↓</button>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="section-tight">
+  <div class="wrap">
+    <p class="lede">
+      Finance and risk professional with 12+ years across corporate credit, portfolio management, financial modelling,
+      and sustainability-aligned lending. Currently Regional Risk Manager at Siemens Financial Services, leading risk
+      decisioning for high-value financing across Mumbai &amp; Nashik.
+    </p>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="wrap">
+    <h2>Experience</h2>
+    <div class="ledger">
+      <div class="entry">
+        <div class="yrs-tag">FEB 2022<br>— PRESENT</div>
+        <div class="entry-head">
+          <span><span class="entry-title">Regional Risk Manager</span><span class="entry-org">Siemens Financial Services Pvt. Ltd.</span></span>
+          <span class="entry-loc">Mumbai</span>
+        </div>
+        <ul>
+          <li>Managed financing across Mumbai &amp; Nashik, handling high-ticket and mid-ticket deals across diverse sectors.</li>
+          <li>Assessed client creditworthiness using internal rating methodologies to inform credit decisions.</li>
+          <li>Analysed financial statements and income documents to support sound risk assessment.</li>
+          <li>Delivered training on updated risk policies, driving adherence to best practices across teams.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="yrs-tag">FEB 2019<br>— DEC 2021</div>
+        <div class="entry-head">
+          <span><span class="entry-title">Credit Manager</span><span class="entry-org">Hero Housing Finance Ltd.</span></span>
+          <span class="entry-loc">Mumbai</span>
+        </div>
+        <ul>
+          <li>Managed end-to-end credit underwriting for housing finance and mortgage lending products.</li>
+          <li>Conducted financial analysis and risk assessment for retail and HNI loan applications.</li>
+          <li>Presented credit proposals to senior management and sanction committees.</li>
+          <li>Monitored portfolio performance and ensured compliance with credit policies.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="yrs-tag">DEC 2016<br>— FEB 2019</div>
+        <div class="entry-head">
+          <span><span class="entry-title">Branch Credit Head</span><span class="entry-org">Indiabulls Housing Finance Ltd.</span></span>
+          <span class="entry-loc">New Delhi</span>
+        </div>
+        <ul>
+          <li>Conducted credit appraisals of corporate clients — financial statement, business, and industry/competitor analysis to determine creditworthiness and recommend ratings.</li>
+          <li>Negotiated payment arrangements with delinquent customers, establishing realistic repayment plans.</li>
+          <li>Oversaw the disbursal team to ensure timely, policy-compliant loan disbursal.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="yrs-tag">FEB 2014<br>— DEC 2016</div>
+        <div class="entry-head">
+          <span><span class="entry-title">Research Analyst</span><span class="entry-org">CRISIL Ltd.</span></span>
+          <span class="entry-loc">Gurgaon</span>
+        </div>
+        <ul>
+          <li>Developed financial models and five-year projections from detailed financial analysis.</li>
+          <li>Delivered industry research and analytical insights for corporate finance decisions.</li>
+          <li>Implemented forecasting and management reporting improvements.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="wrap">
+    <div class="grid grid-2">
+      <div>
+        <h2>Leadership &amp; Contributions</h2>
+        <ul class="hairline-list" style="margin-top:6px;">
+          <li style="display:block; border-top:none;"><p style="margin:0;">Designed and built multiple Power Query automation tools, deployed PAN-India, improving underwriting efficiency and data hygiene.</p></li>
+          <li style="display:block;"><p style="margin:0;">Core member of the Process Improvement Team — partnering across stakeholders on scalable solutions.</p></li>
+          <li style="display:block;"><p style="margin:0;">Delivered risk management training for the PAN-India risk team.</p></li>
+          <li style="display:block;"><p style="margin:0;">Completed global training programmes on ESG tools and sustainability frameworks.</p></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Education &amp; Skills</h2>
+        <p><strong>MBA, Finance</strong> — Amity University<br><strong>B.Com</strong> — Mumbai University</p>
+        <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:14px;">
+          <span class="tag light">Corporate Finance</span>
+          <span class="tag light">Credit Risk</span>
+          <span class="tag light">Financial Modelling</span>
+          <span class="tag light">Portfolio Mgmt</span>
+          <span class="tag light">Process Automation</span>
+          <span class="tag light">Power Query</span>
+          <span class="tag light">MS Office</span>
+          <span class="tag light">SharePoint</span>
+          <span class="tag light">SFDC</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="wrap">
+    <h2>Achievements</h2>
+    <div class="ach-grid" style="margin-top:10px;">
+      <div class="ach-co">
+        <h4>Siemens Financial Services</h4>
+        <ul>
+          <li>Exemplary Award (Excellence) — Mar 2023 &amp; May 2024</li>
+          <li>STAR Award — Nov 2022, organisational contribution</li>
+          <li>STAR Award, Passion for Service — Nov 2023</li>
+        </ul>
+      </div>
+      <div class="ach-co">
+        <h4>Hero Housing Finance</h4>
+        <ul><li>Employee of the Quarter</li></ul>
+      </div>
+      <div class="ach-co">
+        <h4>Indiabulls Housing Finance</h4>
+        <ul>
+          <li>Rising Star Award</li>
+          <li>Most Energetic Performance Award</li>
+        </ul>
+      </div>
+      <div class="ach-co">
+        <h4>CRISIL Ltd.</h4>
+        <ul>
+          <li>Two Bronze ACE Awards</li>
+          <li>R&amp;R Quarter Award</li>
+          <li>Clap Award (CRISILites)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="no-print">
+  <div class="wrap">
+    <div>
+      <div class="f-logo">Riya Studio</div>
+      <div class="f-small">MUMBAI, INDIA</div>
+    </div>
+    <div class="f-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="resume.html">Resume</a>
+      <a href="ideas.html">Ideas</a>
+      <a href="about.html">About</a>
+      <a href="art.html">Art</a>
+      <a href="travel.html">Travel</a>
+      <a href="playground.html">Playground</a>
+    </div>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+</body>
+</html>

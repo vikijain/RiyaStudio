@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Art — Riya Studio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .frame{
+    border:1px solid var(--line);
+    aspect-ratio:4/5;
+    display:flex; align-items:center; justify-content:center;
+    background:var(--paper-dim);
+    overflow:hidden;
+    position:relative;
+  }
+  .frame img{width:100%; height:100%; object-fit:cover;}
+  .frame .placeholder-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px; color:var(--ink-faint); text-align:center; padding:0 20px;
+    letter-spacing:.3px; line-height:1.6;
+  }
+  figcaption{margin-top:10px;}
+  figcaption .cap-title{font-size:13px; font-weight:600; color:var(--ink);}
+  figcaption .cap-med{font-size:11.5px; color:var(--ink-soft); font-family:'IBM Plex Mono', monospace;}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="index.html" class="logo">RIYA STUDIO <em>RB</em></a>
+    <button class="nav-toggle">MENU</button>
+    <nav class="mainnav">
+      <div class="nav-cluster nav-work">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="resume.html">Resume</a>
+      </div>
+      <div class="nav-divider"></div>
+      <div class="nav-cluster nav-personal">
+        <a href="ideas.html">Ideas</a>
+        <a href="about.html">About</a>
+        <a href="art.html" class="active">Art</a>
+        <a href="travel.html">Travel</a>
+        <a href="playground.html">Playground</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section style="padding-top:70px; padding-bottom:20px;">
+  <div class="wrap">
+    <p class="eyebrow personal">// 06 — Art</p>
+    <h1>Paintings &amp; Drawings</h1>
+    <p class="lede">A slowly growing collection, made on weekends and evenings.</p>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="wrap">
+    <div class="grid grid-3">
+
+      <figure style="margin:0;">
+        <div class="frame">
+          <!-- Replace this: <img src="art/painting-1.jpg" alt="Title of the piece"> -->
+          <div class="placeholder-label">ADD IMAGE<br>art/painting-1.jpg</div>
+        </div>
+        <figcaption>
+          <div class="cap-title">Untitled 01</div>
+          <div class="cap-med">Acrylic on canvas · 2026</div>
+        </figcaption>
+      </figure>
+
+      <figure style="margin:0;">
+        <div class="frame">
+          <div class="placeholder-label">ADD IMAGE<br>art/painting-2.jpg</div>
+        </div>
+        <figcaption>
+          <div class="cap-title">Untitled 02</div>
+          <div class="cap-med">Watercolour · 2026</div>
+        </figcaption>
+      </figure>
+
+      <figure style="margin:0;">
+        <div class="frame">
+          <div class="placeholder-label">ADD IMAGE<br>art/drawing-1.jpg</div>
+        </div>
+        <figcaption>
+          <div class="cap-title">Untitled 03</div>
+          <div class="cap-med">Pencil sketch · 2026</div>
+        </figcaption>
+      </figure>
+
+      <figure style="margin:0;">
+        <div class="frame">
+          <div class="placeholder-label">ADD IMAGE<br>art/painting-3.jpg</div>
+        </div>
+        <figcaption>
+          <div class="cap-title">Untitled 04</div>
+          <div class="cap-med">Acrylic on canvas · 2025</div>
+        </figcaption>
+      </figure>
+
+      <figure style="margin:0;">
+        <div class="frame">
+          <div class="placeholder-label">ADD IMAGE<br>art/drawing-2.jpg</div>
+        </div>
+        <figcaption>
+          <div class="cap-title">Untitled 05</div>
+          <div class="cap-med">Charcoal · 2025</div>
+        </figcaption>
+      </figure>
+
+      <figure style="margin:0;">
+        <div class="frame">
+          <div class="placeholder-label">ADD IMAGE<br>art/painting-4.jpg</div>
+        </div>
+        <figcaption>
+          <div class="cap-title">Untitled 06</div>
+          <div class="cap-med">Mixed media · 2025</div>
+        </figcaption>
+      </figure>
+
+    </div>
+
+    <div class="card" style="margin-top:36px;">
+      <p style="margin:0;">
+        <strong>To add your own artwork:</strong> put your image files in an <code>art/</code> folder
+        next to this page, then in <code>art.html</code> replace each placeholder
+        <code>&lt;div class="frame"&gt;</code> block's contents with
+        <code>&lt;img src="art/your-file.jpg" alt="Title"&gt;</code>, and update the caption text below it.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="f-logo">Riya Studio</div>
+      <div class="f-small">MUMBAI, INDIA</div>
+    </div>
+    <div class="f-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="resume.html">Resume</a>
+      <a href="ideas.html">Ideas</a>
+      <a href="about.html">About</a>
+      <a href="art.html">Art</a>
+      <a href="travel.html">Travel</a>
+      <a href="playground.html">Playground</a>
+    </div>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+</body>
+</html>
