@@ -1,133 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Riya Studio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Riya Bhandari — dashboards, automation & risk projects, plus the person behind the work.">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riya Bhandari — Two Sides</title>
+  <meta name="description" content="Riya Bhandari — risk professional who vibe-coded a full arcade with AI. Proof that non-technical people can ship wonders.">
+  <link rel="stylesheet" href="styles.css?v=compact1">
+  <style>
+    .vibe-footnote {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 30;
+      pointer-events: none;
+      padding: 0 16px 14px;
+    }
+    .vibe-footnote-inner {
+      pointer-events: auto;
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(15, 60, 72, 0.12);
+      box-shadow: 0 8px 28px rgba(15, 80, 100, 0.12);
+      font-size: 0.82rem;
+      line-height: 1.45;
+      color: var(--text-muted);
+    }
+    .vibe-footnote-inner strong {
+      color: var(--pro-deep);
+      font-weight: 700;
+    }
+    .vibe-footnote-inner em {
+      font-style: normal;
+      color: var(--life-deep);
+      font-weight: 600;
+    }
+    .vibe-footnote-inner a {
+      color: var(--pro-deep);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-weight: 600;
+    }
+    @media (max-width: 600px) {
+      .vibe-footnote-inner {
+        border-radius: 14px;
+        font-size: 0.78rem;
+        padding: 10px 14px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<header class="topbar">
+<header class="site-nav">
   <div class="wrap">
-    <a href="index.html" class="logo">RIYA STUDIO <em>RB</em></a>
-    <button class="nav-toggle">MENU</button>
-    <nav class="mainnav">
-      <div class="nav-cluster nav-work">
-        <a href="index.html" class="active">Home</a>
-        <a href="services.html">Services</a>
-        <a href="resume.html">Resume</a>
-      </div>
-      <div class="nav-divider"></div>
-      <div class="nav-cluster nav-personal">
-        <a href="ideas.html">Ideas</a>
-        <a href="about.html">About</a>
-        <a href="art.html">Art</a>
-        <a href="travel.html">Travel</a>
-        <a href="playground.html">Playground</a>
+    <a href="index.html" class="logo">Riya Bhandari <span>RB</span></a>
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false">☰</button>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html" class="active">Home</a>
+      <a href="professional.html">Professional</a>
+      <a href="personal.html">Personal</a>
+      <a href="playground.html">Vibe coding</a>
+      <a href="resume.html">Resume</a>
+      <a href="mailto:riyabhandari2007@gmail.com">Contact</a>
+      <div class="mode-switch" role="group" aria-label="Theme mode">
+        <button type="button" data-mode-btn="professional">Work</button>
+        <button type="button" data-mode-btn="personal">Life</button>
       </div>
     </nav>
   </div>
 </header>
 
-<section style="padding-top:90px; padding-bottom:60px;">
-  <div class="wrap">
-    <p class="eyebrow">// 01 — Welcome</p>
-    <h1>Risk-minded by trade.<br>Curious by nature.</h1>
-    <p class="lede">
-      I'm Riya Bhandari — I spend my working hours building dashboards, automating workflows,
-      and making sense of credit risk. Outside of that, I paint, travel, collect half-formed
-      ideas, and occasionally build small games. This is where both sides live.
-    </p>
-    <div style="display:flex; gap:14px; margin-top:26px; flex-wrap:wrap;">
-      <a href="services.html" class="btn">See what I offer →</a>
-      <a href="resume.html" class="btn ghost">View résumé</a>
+<main class="portal" aria-label="Choose a side of Riya">
+  <div class="portal-divider" aria-hidden="true"></div>
+
+  <a href="professional.html" class="portal-side pro" data-mode-set="professional">
+    <div class="orb" aria-hidden="true"></div>
+    <div class="inner">
+      <div class="portal-kicker">// Professional</div>
+      <h2>Risk-minded.<br>Tech-aligned.</h2>
+      <p>
+        Regional Risk Manager at Siemens Financial Services — automation, digital tools,
+        and deliberate tech practice alongside risk craft.
+      </p>
+      <span class="portal-cta">Enter career side <span class="arrow">→</span></span>
     </div>
+  </a>
+
+  <a href="personal.html" class="portal-side life" data-mode-set="personal">
+    <div class="orb" aria-hidden="true"></div>
+    <div class="inner">
+      <div class="portal-kicker">// Personal + Arcade</div>
+      <h2>Paint. Travel.<br>Music. Wonders.</h2>
+      <p>
+        Art, stamps, playlists — and a full vibe-coded arcade.
+        Proof that if you use AI the right way, non-technical people can ship magic.
+      </p>
+      <span class="portal-cta">Enter personal side <span class="arrow">→</span></span>
+    </div>
+  </a>
+</main>
+
+<div class="vibe-footnote" role="note">
+  <div class="vibe-footnote-inner">
+    <strong>Vibe coded</strong> — not outsourced, not a secret agency, not “my cousin who codes.”
+    Just me, AI as co-pilot, and a lot of “make it prettier.”
+    <em>No invoices were harmed in the making of this website.</em>
+    Curious? Peek the <a href="playground.html">arcade</a>.
   </div>
-</section>
+</div>
 
-<hr class="rule">
-
-<section>
-  <div class="wrap">
-    <p class="eyebrow">// 02 — What I do</p>
-    <h2>Work</h2>
-    <div class="grid grid-3" style="margin-top:28px;">
-      <div class="card">
-        <span class="tag">Dashboards</span>
-        <h3 style="margin-top:16px;">Reporting &amp; Dashboards</h3>
-        <p>Turning messy spreadsheets and disconnected data into clean, decision-ready dashboards — built for people who need answers, not more tabs.</p>
-      </div>
-      <div class="card">
-        <span class="tag">Automation</span>
-        <h3 style="margin-top:16px;">Bots &amp; Workflow Automation</h3>
-        <p>Power Query pipelines and lightweight bots that remove repetitive manual work from underwriting, reporting and data-hygiene tasks.</p>
-      </div>
-      <div class="card">
-        <span class="tag">Risk &amp; Finance</span>
-        <h3 style="margin-top:16px;">Credit &amp; Portfolio Projects</h3>
-        <p>Financial modelling, credit assessment frameworks, and portfolio risk projects grounded in 12+ years of real underwriting experience.</p>
-      </div>
-    </div>
-    <a href="services.html" class="btn ghost" style="margin-top:30px;">Full services list →</a>
-  </div>
-</section>
-
-<hr class="rule">
-
-<section>
-  <div class="wrap">
-    <p class="eyebrow personal">// 03 — Beyond the numbers</p>
-    <h2>A few other things about me</h2>
-    <div class="grid grid-4" style="margin-top:28px;">
-      <a href="ideas.html" style="text-decoration:none;">
-        <div class="card">
-          <h3>Food for Thought</h3>
-          <p>Half-baked, maybe-too-futuristic ideas I want written down somewhere.</p>
-        </div>
-      </a>
-      <a href="art.html" style="text-decoration:none;">
-        <div class="card">
-          <h3>Art</h3>
-          <p>Paintings and drawings, made slowly, in whatever time is left after spreadsheets.</p>
-        </div>
-      </a>
-      <a href="travel.html" style="text-decoration:none;">
-        <div class="card">
-          <h3>Travel</h3>
-          <p>A running passport of everywhere I've been so far.</p>
-        </div>
-      </a>
-      <a href="playground.html" style="text-decoration:none;">
-        <div class="card">
-          <h3>Playground</h3>
-          <p>Small, slightly pointless games, built for fun.</p>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div>
-      <div class="f-logo">Riya Studio</div>
-      <div class="f-small">MUMBAI, INDIA</div>
-    </div>
-    <div class="f-links">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="resume.html">Resume</a>
-      <a href="ideas.html">Ideas</a>
-      <a href="about.html">About</a>
-      <a href="art.html">Art</a>
-      <a href="travel.html">Travel</a>
-      <a href="playground.html">Playground</a>
-    </div>
-  </div>
-</footer>
-
-<script src="nav.js"></script>
+<script>
+  // Persist preferred mode when entering a side
+  document.querySelectorAll('[data-mode-set]').forEach(function (el) {
+    el.addEventListener('click', function () {
+      localStorage.setItem('riya-mode', el.getAttribute('data-mode-set'));
+    });
+  });
+</script>
+<script src="app.js"></script>
 </body>
 </html>

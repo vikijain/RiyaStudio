@@ -1,159 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Art — Riya Studio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="styles.css">
-<style>
-  .frame{
-    border:1px solid var(--line);
-    aspect-ratio:4/5;
-    display:flex; align-items:center; justify-content:center;
-    background:var(--paper-dim);
-    overflow:hidden;
-    position:relative;
-  }
-  .frame img{width:100%; height:100%; object-fit:cover;}
-  .frame .placeholder-label{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:10.5px; color:var(--ink-faint); text-align:center; padding:0 20px;
-    letter-spacing:.3px; line-height:1.6;
-  }
-  figcaption{margin-top:10px;}
-  figcaption .cap-title{font-size:13px; font-weight:600; color:var(--ink);}
-  figcaption .cap-med{font-size:11.5px; color:var(--ink-soft); font-family:'IBM Plex Mono', monospace;}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art — Riya Bhandari</title>
+  <meta name="description" content="Paintings and drawings by Riya Bhandari — a slowly growing collection made on weekends.">
+  <link rel="stylesheet" href="styles.css?v=compact1">
 </head>
-<body>
+<body data-preferred-mode="personal">
 
-<header class="topbar">
+<header class="site-nav">
   <div class="wrap">
-    <a href="index.html" class="logo">RIYA STUDIO <em>RB</em></a>
-    <button class="nav-toggle">MENU</button>
-    <nav class="mainnav">
-      <div class="nav-cluster nav-work">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="resume.html">Resume</a>
-      </div>
-      <div class="nav-divider"></div>
-      <div class="nav-cluster nav-personal">
-        <a href="ideas.html">Ideas</a>
-        <a href="about.html">About</a>
-        <a href="art.html" class="active">Art</a>
-        <a href="travel.html">Travel</a>
-        <a href="playground.html">Playground</a>
+    <a href="index.html" class="logo">Riya Bhandari <span>RB</span></a>
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false">☰</button>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="personal.html">Personal</a>
+      <a href="playground.html">Vibe coding</a>
+      <a href="art.html">Art</a>
+      <a href="travel.html">Travel</a>
+      <a href="music.html">Music</a>
+      <div class="mode-switch" role="group" aria-label="Theme mode">
+        <button type="button" data-mode-btn="professional">Work</button>
+        <button type="button" data-mode-btn="personal">Life</button>
       </div>
     </nav>
   </div>
 </header>
 
-<section style="padding-top:70px; padding-bottom:20px;">
+<section class="page-hero compact">
   <div class="wrap">
-    <p class="eyebrow personal">// 06 — Art</p>
-    <h1>Paintings &amp; Drawings</h1>
-    <p class="lede">A slowly growing collection, made on weekends and evenings.</p>
+    <p class="eyebrow reveal">// Personal · Painting</p>
+    <h1 class="reveal reveal-delay-1">Colour after the numbers</h1>
+    <p class="lede reveal reveal-delay-2">
+      Paintings and drawings made slowly — weekends, evenings, and any stretch of quiet
+      that survives a risk career. Click a piece to open it larger.
+    </p>
   </div>
 </section>
 
-<section class="section-tight">
+<section class="tight">
   <div class="wrap">
-    <div class="grid grid-3">
+    <div class="gallery">
 
-      <figure style="margin:0;">
-        <div class="frame">
-          <!-- Replace this: <img src="art/painting-1.jpg" alt="Title of the piece"> -->
-          <div class="placeholder-label">ADD IMAGE<br>art/painting-1.jpg</div>
-        </div>
-        <figcaption>
-          <div class="cap-title">Untitled 01</div>
-          <div class="cap-med">Acrylic on canvas · 2026</div>
-        </figcaption>
-      </figure>
+      <article class="art-card reveal"
+        data-lightbox
+        tabindex="0"
+        data-title="Sunset Wash"
+        data-meta="Acrylic on canvas · 2026"
+        data-bg="linear-gradient(145deg, #e07a5f 0%, #c9a227 45%, #1e2733 100%)">
+        <figure>
+          <div class="art-frame">
+            <div class="art-swatch" style="background:linear-gradient(145deg, #e07a5f 0%, #c9a227 45%, #1e2733 100%)"></div>
+            <!-- Replace with: <img src="art/painting-1.jpg" alt="Sunset Wash"> -->
+          </div>
+          <figcaption>
+            <div class="cap-title">Sunset Wash</div>
+            <div class="cap-med">Acrylic on canvas · 2026</div>
+          </figcaption>
+        </figure>
+      </article>
 
-      <figure style="margin:0;">
-        <div class="frame">
-          <div class="placeholder-label">ADD IMAGE<br>art/painting-2.jpg</div>
-        </div>
-        <figcaption>
-          <div class="cap-title">Untitled 02</div>
-          <div class="cap-med">Watercolour · 2026</div>
-        </figcaption>
-      </figure>
+      <article class="art-card reveal reveal-delay-1"
+        data-lightbox
+        tabindex="0"
+        data-title="Monsoon Quiet"
+        data-meta="Watercolour · 2026"
+        data-bg="linear-gradient(160deg, #4a6fa5 0%, #8fb8de 40%, #e8d5c4 100%)">
+        <figure>
+          <div class="art-frame">
+            <div class="art-swatch" style="background:linear-gradient(160deg, #4a6fa5 0%, #8fb8de 40%, #e8d5c4 100%)"></div>
+          </div>
+          <figcaption>
+            <div class="cap-title">Monsoon Quiet</div>
+            <div class="cap-med">Watercolour · 2026</div>
+          </figcaption>
+        </figure>
+      </article>
 
-      <figure style="margin:0;">
-        <div class="frame">
-          <div class="placeholder-label">ADD IMAGE<br>art/drawing-1.jpg</div>
-        </div>
-        <figcaption>
-          <div class="cap-title">Untitled 03</div>
-          <div class="cap-med">Pencil sketch · 2026</div>
-        </figcaption>
-      </figure>
+      <article class="art-card reveal reveal-delay-2"
+        data-lightbox
+        tabindex="0"
+        data-title="Line Study 03"
+        data-meta="Pencil sketch · 2026"
+        data-bg="linear-gradient(180deg, #2a2a2a 0%, #6b6560 50%, #d4cfc7 100%)">
+        <figure>
+          <div class="art-frame">
+            <div class="art-swatch" style="background:linear-gradient(180deg, #2a2a2a 0%, #6b6560 50%, #d4cfc7 100%)"></div>
+          </div>
+          <figcaption>
+            <div class="cap-title">Line Study 03</div>
+            <div class="cap-med">Pencil sketch · 2026</div>
+          </figcaption>
+        </figure>
+      </article>
 
-      <figure style="margin:0;">
-        <div class="frame">
-          <div class="placeholder-label">ADD IMAGE<br>art/painting-3.jpg</div>
-        </div>
-        <figcaption>
-          <div class="cap-title">Untitled 04</div>
-          <div class="cap-med">Acrylic on canvas · 2025</div>
-        </figcaption>
-      </figure>
+      <article class="art-card reveal"
+        data-lightbox
+        tabindex="0"
+        data-title="Clay &amp; Gold"
+        data-meta="Acrylic on canvas · 2025"
+        data-bg="linear-gradient(125deg, #8b3a2a 0%, #c9a227 55%, #f0e6d2 100%)">
+        <figure>
+          <div class="art-frame">
+            <div class="art-swatch" style="background:linear-gradient(125deg, #8b3a2a 0%, #c9a227 55%, #f0e6d2 100%)"></div>
+          </div>
+          <figcaption>
+            <div class="cap-title">Clay &amp; Gold</div>
+            <div class="cap-med">Acrylic on canvas · 2025</div>
+          </figcaption>
+        </figure>
+      </article>
 
-      <figure style="margin:0;">
-        <div class="frame">
-          <div class="placeholder-label">ADD IMAGE<br>art/drawing-2.jpg</div>
-        </div>
-        <figcaption>
-          <div class="cap-title">Untitled 05</div>
-          <div class="cap-med">Charcoal · 2025</div>
-        </figcaption>
-      </figure>
+      <article class="art-card reveal reveal-delay-1"
+        data-lightbox
+        tabindex="0"
+        data-title="Charcoal Figure"
+        data-meta="Charcoal · 2025"
+        data-bg="linear-gradient(200deg, #111 0%, #3d3d3d 40%, #9a9590 100%)">
+        <figure>
+          <div class="art-frame">
+            <div class="art-swatch" style="background:linear-gradient(200deg, #111 0%, #3d3d3d 40%, #9a9590 100%)"></div>
+          </div>
+          <figcaption>
+            <div class="cap-title">Charcoal Figure</div>
+            <div class="cap-med">Charcoal · 2025</div>
+          </figcaption>
+        </figure>
+      </article>
 
-      <figure style="margin:0;">
-        <div class="frame">
-          <div class="placeholder-label">ADD IMAGE<br>art/painting-4.jpg</div>
-        </div>
-        <figcaption>
-          <div class="cap-title">Untitled 06</div>
-          <div class="cap-med">Mixed media · 2025</div>
-        </figcaption>
-      </figure>
+      <article class="art-card reveal reveal-delay-2"
+        data-lightbox
+        tabindex="0"
+        data-title="Mixed Field"
+        data-meta="Mixed media · 2025"
+        data-bg="linear-gradient(135deg, #2d6a4f 0%, #e07a5f 50%, #f4a261 100%)">
+        <figure>
+          <div class="art-frame">
+            <div class="art-swatch" style="background:linear-gradient(135deg, #2d6a4f 0%, #e07a5f 50%, #f4a261 100%)"></div>
+          </div>
+          <figcaption>
+            <div class="cap-title">Mixed Field</div>
+            <div class="cap-med">Mixed media · 2025</div>
+          </figcaption>
+        </figure>
+      </article>
 
     </div>
 
-    <div class="card" style="margin-top:36px;">
+    <div class="card reveal" style="margin-top:40px;">
       <p style="margin:0;">
-        <strong>To add your own artwork:</strong> put your image files in an <code>art/</code> folder
-        next to this page, then in <code>art.html</code> replace each placeholder
-        <code>&lt;div class="frame"&gt;</code> block's contents with
-        <code>&lt;img src="art/your-file.jpg" alt="Title"&gt;</code>, and update the caption text below it.
+        <strong style="color:var(--text);">Add your real artwork:</strong>
+        create an <code style="color:var(--life-soft);">art/</code> folder next to this page,
+        drop in your images, then replace each gradient swatch with
+        <code style="color:var(--life-soft);">&lt;img src="art/your-file.jpg" alt="Title"&gt;</code>
+        and update the title, medium, and year.
       </p>
     </div>
   </div>
 </section>
 
-<footer>
+<footer class="site-footer">
   <div class="wrap">
     <div>
-      <div class="f-logo">Riya Studio</div>
-      <div class="f-small">MUMBAI, INDIA</div>
+      <div class="f-brand">Riya Bhandari</div>
+      <div class="f-meta">MUMBAI · INDIA</div>
     </div>
     <div class="f-links">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="resume.html">Resume</a>
-      <a href="ideas.html">Ideas</a>
-      <a href="about.html">About</a>
+      <a href="personal.html">Personal</a>
       <a href="art.html">Art</a>
       <a href="travel.html">Travel</a>
-      <a href="playground.html">Playground</a>
+      <a href="music.html">Music</a>
+      <a href="professional.html">Professional</a>
+    </div>
+    <div class="f-bottom">
+      <span>Two sides. One person.</span>
+      <span>© 2026 Riya Bhandari</span>
     </div>
   </div>
 </footer>
 
-<script src="nav.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
