@@ -1,242 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy 35th Birthday, Riya ✨</title>
-  <meta name="description" content="A birthday celebration for Riya — music, love, and an optional mystery journey." />
-  <meta name="theme-color" content="#1a0b2e" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riya Bhandari — Two Sides</title>
+  <meta name="description" content="Riya Bhandari — risk professional who vibe-coded a full arcade with AI. Proof that non-technical people can ship wonders.">
+  <link rel="stylesheet" href="styles.css?v=compact1">
+  <style>
+    .vibe-footnote {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 30;
+      pointer-events: none;
+      padding: 0 16px 14px;
+    }
+    .vibe-footnote-inner {
+      pointer-events: auto;
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(15, 60, 72, 0.12);
+      box-shadow: 0 8px 28px rgba(15, 80, 100, 0.12);
+      font-size: 0.82rem;
+      line-height: 1.45;
+      color: var(--text-muted);
+    }
+    .vibe-footnote-inner strong {
+      color: var(--pro-deep);
+      font-weight: 700;
+    }
+    .vibe-footnote-inner em {
+      font-style: normal;
+      color: var(--life-deep);
+      font-weight: 600;
+    }
+    .vibe-footnote-inner a {
+      color: var(--pro-deep);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-weight: 600;
+    }
+    @media (max-width: 600px) {
+      .vibe-footnote-inner {
+        border-radius: 14px;
+        font-size: 0.78rem;
+        padding: 10px 14px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <canvas id="stars" aria-hidden="true"></canvas>
-  <canvas id="confetti" aria-hidden="true"></canvas>
-  <div class="orb orb-a" aria-hidden="true"></div>
-  <div class="orb orb-b" aria-hidden="true"></div>
-  <div class="orb orb-c" aria-hidden="true"></div>
-  <div id="balloons" class="balloons" aria-hidden="true"></div>
 
-  <!-- ========== LANDING GATE (default) ========== -->
-  <section id="gate" class="gate" aria-label="Open birthday gift">
-    <div class="gate-card">
-      <p class="gate-kicker">July 19</p>
-      <h1 class="gate-title">
-        Something special<br />
-        is waiting for you
-      </h1>
-      <p class="gate-sub">
-        When you’re ready — cake nearby, family around — open your gift.
+<header class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="logo">Riya Bhandari <span>RB</span></a>
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false">☰</button>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html" class="active">Home</a>
+      <a href="professional.html">Professional</a>
+      <a href="personal.html">Personal</a>
+      <a href="playground.html">Vibe coding</a>
+      <a href="resume.html">Resume</a>
+      <a href="mailto:riyabhandari2007@gmail.com">Contact</a>
+      <div class="mode-switch" role="group" aria-label="Theme mode">
+        <button type="button" data-mode-btn="professional">Work</button>
+        <button type="button" data-mode-btn="personal">Life</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="portal" aria-label="Choose a side of Riya">
+  <div class="portal-divider" aria-hidden="true"></div>
+
+  <a href="professional.html" class="portal-side pro" data-mode-set="professional">
+    <div class="orb" aria-hidden="true"></div>
+    <div class="inner">
+      <div class="portal-kicker">// Professional</div>
+      <h2>Risk-minded.<br>Tech-aligned.</h2>
+      <p>
+        Regional Risk Manager at Siemens Financial Services — automation, digital tools,
+        and deliberate tech practice alongside risk craft.
       </p>
-      <button type="button" id="openGift" class="btn-magic">
-        <span class="btn-sparkle" aria-hidden="true">✦</span>
-        Open your birthday gift
-        <span class="btn-sparkle" aria-hidden="true">✦</span>
-      </button>
-      <p class="gate-hint">Happy Birthday song, balloons &amp; confetti</p>
-
-      <div class="gate-optional">
-        <p class="gate-optional-label">Feeling adventurous?</p>
-        <button type="button" id="startMystery" class="btn-soft">
-          🔮 Take the mystery journey instead
-        </button>
-        <p class="gate-optional-hint">10 little doors · optional · for when you have a few minutes</p>
-      </div>
+      <span class="portal-cta">Enter career side <span class="arrow">→</span></span>
     </div>
-  </section>
+  </a>
 
-  <!-- ========== MYSTERY JOURNEY (optional) ========== -->
-  <div id="journey" class="journey is-hidden" hidden>
-    <header class="journey-bar">
-      <div class="journey-bar-top">
-        <div class="journey-brand">
-          <span class="brand-mark brand-mark-sm" aria-hidden="true">
-            <span class="brand-heart">♥</span>
-          </span>
-          <span class="brand-text">
-            <span class="brand-title" id="journeyLabel">A secret for Riya</span>
-            <span class="brand-sub">Mystery journey · just for you</span>
-          </span>
-        </div>
-        <p class="progress-text journey-step-badge"><span id="stepNum">1</span> / 10</p>
-      </div>
-      <div class="progress-wrap" aria-label="Journey progress">
-        <div class="progress-track">
-          <div class="progress-fill" id="progressFill"></div>
-        </div>
-        <div class="progress-dots" id="progressDots" role="list"></div>
-      </div>
-    </header>
+  <a href="personal.html" class="portal-side life" data-mode-set="personal">
+    <div class="orb" aria-hidden="true"></div>
+    <div class="inner">
+      <div class="portal-kicker">// Personal + Arcade</div>
+      <h2>Paint. Travel.<br>Music. Wonders.</h2>
+      <p>
+        Art, stamps, playlists — and a full vibe-coded arcade.
+        Proof that if you use AI the right way, non-technical people can ship magic.
+      </p>
+      <span class="portal-cta">Enter personal side <span class="arrow">→</span></span>
+    </div>
+  </a>
+</main>
 
-    <main class="journey-main">
-      <div id="stageRoot" class="stage-root" aria-live="polite"></div>
-    </main>
-
-    <p class="journey-whisper" id="journeyWhisper">Take your time. Each door opens only for you.</p>
+<div class="vibe-footnote" role="note">
+  <div class="vibe-footnote-inner">
+    <strong>Vibe coded</strong> — not outsourced, not a secret agency, not “my cousin who codes.”
+    Just me, AI as co-pilot, and a lot of “make it prettier.”
+    <em>No invoices were harmed in the making of this website.</em>
+    Curious? Peek the <a href="playground.html">arcade</a>.
   </div>
+</div>
 
-  <!-- ========== BIRTHDAY PARTY ========== -->
-  <div id="finale" class="party is-hidden" hidden>
-    <header class="topbar">
-      <div class="topbar-inner">
-        <a href="#hero" class="topbar-brand" aria-label="Back to top">
-          <span class="brand-mark" aria-hidden="true">
-            <span class="brand-heart">♥</span>
-          </span>
-          <span class="brand-text">
-            <span class="brand-title">Riya <em>· 35</em></span>
-            <span class="brand-sub">Happy Birthday · July 19</span>
-          </span>
-        </a>
-
-        <nav class="topbar-nav" aria-label="Celebration sections">
-          <a href="#cake">Cake</a>
-          <a href="#memories">Photos</a>
-          <a href="#letter">Letter</a>
-        </nav>
-
-        <div class="topbar-actions">
-          <button type="button" id="toggleMusic" class="chip" aria-pressed="true" title="Toggle music">
-            <span id="musicIcon">🎂</span>
-            <span id="musicLabel">Music</span>
-          </button>
-          <button type="button" id="moreConfetti" class="chip chip-accent" title="More confetti">
-            🎉
-            <span class="chip-hide-sm">Confetti</span>
-          </button>
-        </div>
-      </div>
-      <div class="topbar-sparkle" aria-hidden="true"></div>
-    </header>
-
-    <main>
-      <section class="hero" id="hero">
-        <p class="eyebrow reveal" id="heroEyebrow">A private celebration · July 19</p>
-        <h1 class="hero-title reveal">
-          Happy 35th Birthday,<br />
-          <em>Riya</em>
-        </h1>
-        <p class="love-line reveal">I love you.</p>
-        <p class="hero-age reveal">
-          <span class="age-num">35</span>
-          <span class="age-label">years of light — and a lifetime still to write with you</span>
-        </p>
-        <p class="hero-lead reveal" id="heroLead">
-          May this next chapter feel as vivid as your paintings,<br class="hide-sm" />
-          as free as your travels, and as joyful as your favourite song.
-        </p>
-        <div class="hero-cta reveal">
-          <a class="btn-ghost" href="#cake">Make a wish ↓</a>
-          <a class="btn-ghost" href="#memories">Our photos ↓</a>
-          <a class="btn-ghost" href="#letter">A letter for you ↓</a>
-          <button type="button" id="tryMysteryFromParty" class="btn-ghost">🔮 Mystery journey</button>
-        </div>
-      </section>
-
-      <section class="section cake-section" id="cake">
-        <div class="section-head reveal">
-          <p class="eyebrow">The moment</p>
-          <h2>Blow out the candles</h2>
-          <p class="section-lead">
-            Close your eyes for one second. Make a wish. Then tap the cake —
-            I’ll be wishing right beside you.
-          </p>
-        </div>
-        <div class="cake-stage reveal">
-          <button type="button" id="blowCandles" class="cake-btn" aria-label="Blow out the candles">
-            <div class="cake" id="cakeVisual">
-              <div class="candles" id="candles" aria-hidden="true"></div>
-              <div class="cake-top"></div>
-              <div class="cake-frosting"></div>
-              <div class="cake-mid"></div>
-              <div class="cake-bottom"></div>
-              <div class="cake-plate"></div>
-            </div>
-            <span class="cake-hint" id="cakeHint">Tap to blow out · make a wish</span>
-          </button>
-          <div class="wish-panel" id="wishPanel" hidden>
-            <p class="wish-label">Wish sealed · love locked in ✨</p>
-            <p class="wish-text">Happy 35th, my love. The best chapters still have our names on them.</p>
-            <button type="button" id="relight" class="chip">Light candles again</button>
-          </div>
-        </div>
-      </section>
-
-      <section class="section memories" id="memories">
-        <div class="section-head reveal">
-          <p class="eyebrow">Our album</p>
-          <h2>Pieces of us</h2>
-          <p class="section-lead">
-            Every smile, every season, every version of you I fell in love with again.
-          </p>
-        </div>
-        <div class="gallery-shell reveal">
-          <button type="button" class="gal-nav gal-prev" id="galPrev" aria-label="Previous">‹</button>
-          <div class="gallery-frame">
-            <div class="gallery-track" id="galleryTrack"></div>
-            <div class="gallery-empty" id="galleryEmpty" hidden>
-              <div class="empty-art" aria-hidden="true">📷</div>
-              <h3>Our photos will live here</h3>
-              <p>Add photos to <code>images/</code> and refresh.</p>
-            </div>
-          </div>
-          <button type="button" class="gal-nav gal-next" id="galNext" aria-label="Next">›</button>
-        </div>
-        <div class="gallery-dots" id="galleryDots" role="tablist" aria-label="Photos"></div>
-
-        <p class="wall-label reveal">All our moments</p>
-        <div class="photo-wall" id="photoWall" aria-label="Photo collage"></div>
-      </section>
-
-      <section class="section letter-section" id="letter">
-        <article class="letter reveal">
-          <p class="letter-date">July 19 · For my wife</p>
-          <h2>Dear Riya,</h2>
-          <p>
-            I wanted more than a cake and a card. I wanted you to feel, door by door,
-            how carefully I think of you — how every ordinary day still holds a little
-            mystery when you’re the one I get to come home to.
-          </p>
-          <p>
-            You paint colour into life. You travel with wonder. You work with quiet fire.
-            And you love in a way that makes thirty-five feel not like a number,
-            but like a celebration of <em>you</em>.
-          </p>
-          <p>
-            And watching you with <strong>Aaru</strong> — the patience, the joy, the way
-            she softens every room you’re both in — makes me fall for you all over again.
-            She is so lucky to have you as her mum.
-          </p>
-          <p>
-            Happy birthday, my love. I’m so proud of the woman you are —
-            and endlessly lucky that your story includes me.
-          </p>
-          <p class="letter-sign">Forever yours,<br /><em>Vikalp</em> 💕</p>
-        </article>
-      </section>
-
-      <section class="section finale" id="encore">
-        <div class="finale-card reveal">
-          <p class="eyebrow">Encore</p>
-          <h2>One more burst of joy?</h2>
-          <p class="section-lead">For the photo. For the toast. For us.</p>
-          <button type="button" id="finaleBurst" class="btn-magic">
-            <span class="btn-sparkle" aria-hidden="true">✦</span>
-            Celebrate again
-            <span class="btn-sparkle" aria-hidden="true">✦</span>
-          </button>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <p>Made with love for Riya’s 35th · A mystery, just for you</p>
-      <p class="footer-note">Ten doors. One truth. I love you.</p>
-    </footer>
-  </div>
-
-  <script src="app.js"></script>
+<script>
+  // Persist preferred mode when entering a side
+  document.querySelectorAll('[data-mode-set]').forEach(function (el) {
+    el.addEventListener('click', function () {
+      localStorage.setItem('riya-mode', el.getAttribute('data-mode-set'));
+    });
+  });
+</script>
+<script src="app.js"></script>
 </body>
 </html>
